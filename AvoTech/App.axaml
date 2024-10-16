@@ -3,6 +3,7 @@
     x:Class="AvoTech.App"
     xmlns="https://github.com/avaloniaui"
     xmlns:local="using:AvoTech"
+    xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
     xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
@@ -14,7 +15,17 @@
     <Application.Styles>
         <themes:MaterialTheme
             BaseTheme="Light"
-            PrimaryColor="Purple"
+            PrimaryColor="Indigo"
             SecondaryColor="Lime" />
+        <materialIcons:MaterialIconStyles />
+        <Style Selector="TextBlock">
+            <Setter Property="FontFamily" Value="Microsoft YaHei, Arial, sans-serif" />
+        </Style>
+        <Style Selector="TextBox">
+            <Setter Property="FontFamily" Value="Microsoft YaHei, Arial, sans-serif" />
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="FontFamily" Value="Microsoft YaHei, Arial, sans-serif" />
+        </Style>
     </Application.Styles>
 </Application>

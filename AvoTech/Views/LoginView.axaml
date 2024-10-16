@@ -1,0 +1,111 @@
+﻿<Window
+    Height="350"
+    SystemDecorations="None"
+    Title="LoginView"
+    Width="400"
+    WindowStartupLocation="CenterScreen"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="AvoTech.Views.LoginView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+    xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <Rectangle Height="160" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF2281D1" />
+                    <GradientStop Color="#FF33288B" Offset="0.546" />
+                    <GradientStop Color="#FF34268A" Offset="1" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Fill="White"
+            Height="240"
+            Margin="0,50"
+            RadiusX="10"
+            RadiusY="10"
+            VerticalAlignment="Bottom"
+            Width="300">
+            <Rectangle.Effect>
+                <DropShadowEffect BlurRadius="15" Color="#FFBBBBBB" />
+            </Rectangle.Effect>
+        </Rectangle>
+        <Grid
+            Height="240"
+            Margin="35,80"
+            VerticalAlignment="Bottom">
+            <Label
+                Content="欢迎使用Avo"
+                FontSize="18"
+                Foreground="White"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top" />
+            <StackPanel Margin="15" VerticalAlignment="Center">
+                <Grid ColumnDefinitions="Auto,220">
+                    <avalonia:MaterialIcon
+                        Grid.Column="0"
+                        Height="24"
+                        Kind="Account"
+                        Margin="10,5,10,0"
+                        Width="24" />
+                    <TextBox
+                        Classes="outline clearButton"
+                        Grid.Column="1"
+                        Margin="0,10"
+                        Theme="{StaticResource OutlineTextBox}"
+                        UseFloatingWatermark="True"
+                        assists:TextFieldAssist.Label="UserName" />
+                </Grid>
+                <Grid ColumnDefinitions="Auto,220">
+                    <avalonia:MaterialIcon
+                        Grid.Column="0"
+                        Height="24"
+                        Kind="Password"
+                        Margin="10,5,10,0"
+                        Width="24" />
+                    <TextBox
+                        Classes="outline revealPasswordButton"
+                        Grid.Column="1"
+                        PasswordChar="*"
+                        Theme="{StaticResource OutlineTextBox}"
+                        UseFloatingWatermark="True"
+                        assists:TextFieldAssist.Label="PassWord" />
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <TextBlock
+            Cursor="Hand"
+            Foreground="Black"
+            HorizontalAlignment="Left"
+            Margin="20"
+            Text="忘记密码？"
+            VerticalAlignment="Bottom" />
+        <TextBlock
+            Cursor="Hand"
+            Foreground="Black"
+            HorizontalAlignment="Right"
+            Margin="20"
+            Text="注册账号"
+            VerticalAlignment="Bottom" />
+        <Button
+            Content="登录"
+            HorizontalAlignment="Center"
+            Margin="0,65"
+            VerticalAlignment="Bottom"
+            Width="150" />
+        <Button
+            Background="{x:Null}"
+            BorderBrush="{x:Null}"
+            Click="Close_Click"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top">
+            <avalonia:MaterialIcon Kind="Close" />
+        </Button>
+    </Grid>
+</Window>
