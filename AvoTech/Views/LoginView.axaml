@@ -2,7 +2,7 @@
     Height="350"
     SystemDecorations="None"
     Title="LoginView"
-    Width="400"
+    Width="420"
     WindowStartupLocation="CenterScreen"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -31,13 +31,13 @@
             RadiusX="10"
             RadiusY="10"
             VerticalAlignment="Bottom"
-            Width="300">
+            Width="360">
             <Rectangle.Effect>
                 <DropShadowEffect BlurRadius="15" Color="#FFBBBBBB" />
             </Rectangle.Effect>
         </Rectangle>
         <Grid
-            Height="240"
+            Height="255"
             Margin="35,80"
             VerticalAlignment="Bottom">
             <Label
@@ -46,13 +46,13 @@
                 Foreground="White"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top" />
-            <StackPanel Margin="15" VerticalAlignment="Center">
-                <Grid ColumnDefinitions="Auto,220">
+            <StackPanel Margin="5" VerticalAlignment="Center">
+                <Grid ColumnDefinitions="Auto,260">
                     <avalonia:MaterialIcon
                         Grid.Column="0"
                         Height="24"
                         Kind="Account"
-                        Margin="10,5,10,0"
+                        Margin="15,8,10,0"
                         Width="24" />
                     <TextBox
                         Classes="outline clearButton"
@@ -62,12 +62,12 @@
                         UseFloatingWatermark="True"
                         assists:TextFieldAssist.Label="UserName" />
                 </Grid>
-                <Grid ColumnDefinitions="Auto,220">
+                <Grid ColumnDefinitions="Auto,260">
                     <avalonia:MaterialIcon
                         Grid.Column="0"
                         Height="24"
                         Kind="Password"
-                        Margin="10,5,10,0"
+                        Margin="15,8,10,0"
                         Width="24" />
                     <TextBox
                         Classes="outline revealPasswordButton"
@@ -96,9 +96,9 @@
         <Button
             Content="登录"
             HorizontalAlignment="Center"
-            Margin="0,65"
+            Margin="0,80"
             VerticalAlignment="Bottom"
-            Width="150" />
+            Width="300" />
         <Button
             Background="{x:Null}"
             BorderBrush="{x:Null}"
