@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 
@@ -11,6 +12,17 @@ public partial class LoginView : Window
     {
         InitializeComponent();
     }
+
+    protected override void OnPointerPressed(PointerPressedEventArgs e)
+    {
+        base.OnPointerPressed(e);
+
+        if (e.GetCurrentPoint(this).Properties.IsLeftButtonPressed)
+        {
+            this.BeginMoveDrag(e);
+        }
+    }
+
     private void Close_Click(object sender, RoutedEventArgs e)
     {
         this.Close();
