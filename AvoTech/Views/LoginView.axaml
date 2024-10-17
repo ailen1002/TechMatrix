@@ -90,22 +90,26 @@
             Margin="20"
             Text="忘记密码？"
             VerticalAlignment="Bottom" />
-        <TextBlock
-            Cursor="Hand"
+        <StackPanel
             HorizontalAlignment="Right"
             Margin="20"
-            PointerPressed="OnRegisterPressed"
-            Text="注册账号"
+            Orientation="Horizontal"
             VerticalAlignment="Bottom">
-            <TextBlock.Styles>
-                <Style Selector="TextBlock:pointerover">
-                    <Setter Property="Foreground" Value="Blue" />
-                </Style>
-                <Style Selector="TextBlock">
-                    <Setter Property="Foreground" Value="Black" />
-                </Style>
-            </TextBlock.Styles>
-        </TextBlock>
+            <TextBlock Foreground="Silver" Text="没有账号？" />
+            <TextBlock
+                Cursor="Hand"
+                PointerPressed="OnRegisterPressed"
+                Text="立即注册">
+                <TextBlock.Styles>
+                    <Style Selector="TextBlock:pointerover">
+                        <Setter Property="Foreground" Value="Blue" />
+                    </Style>
+                    <Style Selector="TextBlock">
+                        <Setter Property="Foreground" Value="Black" />
+                    </Style>
+                </TextBlock.Styles>
+            </TextBlock>
+        </StackPanel>
         <Button
             Content="登录"
             HorizontalAlignment="Center"
