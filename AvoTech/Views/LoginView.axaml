@@ -92,12 +92,20 @@
             VerticalAlignment="Bottom" />
         <TextBlock
             Cursor="Hand"
-            Foreground="Black"
             HorizontalAlignment="Right"
             Margin="20"
-            PointerPressed="{Binding OpenRegisterCommand}"
+            PointerPressed="OnRegisterPressed"
             Text="注册账号"
-            VerticalAlignment="Bottom" />
+            VerticalAlignment="Bottom">
+            <TextBlock.Styles>
+                <Style Selector="TextBlock:pointerover">
+                    <Setter Property="Foreground" Value="Blue" />
+                </Style>
+                <Style Selector="TextBlock">
+                    <Setter Property="Foreground" Value="Black" />
+                </Style>
+            </TextBlock.Styles>
+        </TextBlock>
         <Button
             Content="登录"
             HorizontalAlignment="Center"
