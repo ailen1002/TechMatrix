@@ -31,7 +31,7 @@ public partial class App : Application
         {
             singleViewPlatform.MainView = new LoginView
             {
-                DataContext = new LoginView()
+                DataContext = new LoginViewModel()
             };
         }
 
