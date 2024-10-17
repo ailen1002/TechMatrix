@@ -17,10 +17,12 @@
     <Grid>
         <Rectangle Height="160" VerticalAlignment="Top">
             <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF2281D1" />
-                    <GradientStop Color="#FF33288B" Offset="0.546" />
-                    <GradientStop Color="#FF34268A" Offset="1" />
+                <LinearGradientBrush EndPoint="0%,100%" StartPoint="0%,0%">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Color="#FF34268A" Offset="0" />
+                        <GradientStop Color="#FF33288B" Offset="0.546" />
+                        <GradientStop Color="#FF2281D1" Offset="1" />
+                    </LinearGradientBrush.GradientStops>
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
@@ -31,7 +33,7 @@
             RadiusX="10"
             RadiusY="10"
             VerticalAlignment="Bottom"
-            Width="360">
+            Width="350">
             <Rectangle.Effect>
                 <DropShadowEffect BlurRadius="15" Color="#FFBBBBBB" />
             </Rectangle.Effect>
@@ -52,7 +54,7 @@
                         Grid.Column="0"
                         Height="24"
                         Kind="Account"
-                        Margin="15,8,10,0"
+                        Margin="18,8,10,0"
                         Width="24" />
                     <TextBox
                         Classes="outline clearButton"
@@ -67,7 +69,7 @@
                         Grid.Column="0"
                         Height="24"
                         Kind="Password"
-                        Margin="15,8,10,0"
+                        Margin="18,8,10,0"
                         Width="24" />
                     <TextBox
                         Classes="outline revealPasswordButton"
