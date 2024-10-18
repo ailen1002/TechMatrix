@@ -1,5 +1,8 @@
 ﻿<Window
+    Height="450"
+    SystemDecorations="None"
     Title="RegisterView"
+    Width="500"
     WindowStartupLocation="CenterScreen"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -7,11 +10,106 @@
     x:Class="AvoTech.Views.RegisterView"
     x:DataType="viewModels:RegisterViewModel"
     xmlns="https://github.com/avaloniaui"
+    xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+    xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:AvoTech.ViewModels"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
-        这是注册页面
-    </TextBlock>
+    <Grid>
+        <Rectangle Height="330" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0%,100%" StartPoint="0%,0%">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Color="#FF34268A" Offset="0" />
+                        <GradientStop Color="#FF33288B" Offset="0.546" />
+                        <GradientStop Color="#FF2281D1" Offset="1" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Fill="White"
+            Height="335"
+            Margin="0,55"
+            RadiusX="10"
+            RadiusY="10"
+            VerticalAlignment="Bottom"
+            Width="450">
+            <Rectangle.Effect>
+                <DropShadowEffect BlurRadius="15" Color="#FFBBBBBB" />
+            </Rectangle.Effect>
+        </Rectangle>
+        <StackPanel
+            Margin="5"
+            VerticalAlignment="Center"
+            Width="400">
+            <TextBox
+                Classes="outline dense"
+                PasswordChar="*"
+                Theme="{StaticResource OutlineTextBox}"
+                UseFloatingWatermark="True"
+                assists:TextFieldAssist.Label="用户名称" />
+            <TextBox
+                Classes="outline dense"
+                IsEnabled="False"
+                PasswordChar="*"
+                Theme="{StaticResource OutlineTextBox}"
+                UseFloatingWatermark="True"
+                assists:TextFieldAssist.Label="邮箱地址" />
+            <TextBox
+                Classes="outline dense"
+                IsEnabled="False"
+                PasswordChar="*"
+                Theme="{StaticResource OutlineTextBox}"
+                UseFloatingWatermark="True"
+                assists:TextFieldAssist.Label="验证码" />
+            <TextBox
+                Classes="outline dense revealPasswordButton"
+                PasswordChar="*"
+                Theme="{StaticResource OutlineTextBox}"
+                UseFloatingWatermark="True"
+                assists:TextFieldAssist.Label="密码" />
+            <TextBox
+                Classes="outline dense revealPasswordButton"
+                PasswordChar="*"
+                Theme="{StaticResource OutlineTextBox}"
+                UseFloatingWatermark="True"
+                assists:TextFieldAssist.Label="确认密码" />
+            <Button
+                Content="注册"
+                HorizontalAlignment="Center"
+                Margin="0,20,0,0"
+                VerticalAlignment="Bottom"
+                Width="400" />
+        </StackPanel>
+        <StackPanel
+            HorizontalAlignment="Right"
+            Margin="20"
+            Orientation="Horizontal"
+            VerticalAlignment="Bottom">
+            <TextBlock Foreground="Silver" Text="已有账号？" />
+            <TextBlock
+                Cursor="Hand"
+                PointerPressed="OnLoginPressed"
+                Text="立即登录">
+                <TextBlock.Styles>
+                    <Style Selector="TextBlock:pointerover">
+                        <Setter Property="Foreground" Value="Blue" />
+                    </Style>
+                    <Style Selector="TextBlock">
+                        <Setter Property="Foreground" Value="Black" />
+                    </Style>
+                </TextBlock.Styles>
+            </TextBlock>
+        </StackPanel>
+        <Button
+            Background="{x:Null}"
+            BorderBrush="{x:Null}"
+            Click="Close_Click"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top">
+            <avalonia:MaterialIcon Kind="Close" />
+        </Button>
+    </Grid>
 </Window>
