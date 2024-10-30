@@ -1,20 +1,22 @@
 ﻿using System;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
 using AvoTech.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AvoTech.Views;
 
 public partial class LoginView : Window
 {
-    public LoginView()
+    private readonly IServiceProvider _serviceProvider;
+    public LoginView(IServiceProvider serviceProvider, LoginViewModel loginViewModel)
     {
+        _serviceProvider = serviceProvider;
+        DataContext = loginViewModel;
         InitializeComponent();
     }
-
+    
     protected override void OnPointerPressed(PointerPressedEventArgs e)
     {
         base.OnPointerPressed(e);
@@ -32,8 +34,7 @@ public partial class LoginView : Window
     
     private void OnRegisterPressed(object sender, PointerPressedEventArgs e)
     {
-        var registerWindow = new RegisterView();
-        
-        registerWindow.ShowDialog(this);
+        var registerView = _serviceProvider.GetRequiredService<RegisterView>();
+        registerView.ShowDialog(this);
     }
 }
