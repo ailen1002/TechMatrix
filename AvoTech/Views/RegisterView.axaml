@@ -46,7 +46,7 @@
             Width="400">
             <TextBox
                 Classes="outline dense"
-                PasswordChar="*"
+                Text="{Binding UserName}"
                 Theme="{StaticResource OutlineTextBox}"
                 UseFloatingWatermark="True"
                 assists:TextFieldAssist.Label="用户名称" />
@@ -67,16 +67,19 @@
             <TextBox
                 Classes="outline dense revealPasswordButton"
                 PasswordChar="*"
+                Text="{Binding PassWord}"
                 Theme="{StaticResource OutlineTextBox}"
                 UseFloatingWatermark="True"
                 assists:TextFieldAssist.Label="密码" />
             <TextBox
                 Classes="outline dense revealPasswordButton"
                 PasswordChar="*"
+                Text="{Binding ConfirmPassword}"
                 Theme="{StaticResource OutlineTextBox}"
                 UseFloatingWatermark="True"
                 assists:TextFieldAssist.Label="确认密码" />
             <Button
+                Command="{Binding RegisterCommand}"
                 Content="注册"
                 HorizontalAlignment="Center"
                 Margin="0,20,0,0"
