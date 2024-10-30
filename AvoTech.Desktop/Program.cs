@@ -1,5 +1,6 @@
 ﻿using System;
 using Avalonia;
+using Avalonia.ReactiveUI;
 using Microsoft.Extensions.Logging;
 using NLog;
 using NLog.Extensions.Logging;
@@ -70,5 +71,6 @@ sealed class Program
         => AppBuilder.Configure<App>()
             .UsePlatformDetect()
             .WithInterFont()
-            .LogToTrace();
+            .LogToTrace()
+            .UseReactiveUI();
 }
