@@ -1,17 +1,16 @@
-﻿using Avalonia;
-using Avalonia.Controls;
+﻿using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
+using AvoTech.ViewModels;
 
 namespace AvoTech.Views;
 
 public partial class RegisterView : Window
 {
-    public RegisterView()
+    public RegisterView(RegisterViewModel registerViewModel)
     {
         InitializeComponent();
-        
+        DataContext = registerViewModel;
     }
     
     protected override void OnPointerPressed(PointerPressedEventArgs e)
