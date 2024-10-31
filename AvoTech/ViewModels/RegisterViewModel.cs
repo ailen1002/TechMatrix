@@ -1,9 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reactive;
 using System.Threading.Tasks;
+using Avalonia.Controls;
+using Avalonia.Interactivity;
 using Avalonia.Threading;
 using AvoTech.Interfaces;
 using AvoTech.Models;
+using MsBox.Avalonia;
+using MsBox.Avalonia.Dto;
+using MsBox.Avalonia.Enums;
+using MsBox.Avalonia.Models;
 using ReactiveUI;
 
 namespace AvoTech.ViewModels;
@@ -58,13 +66,13 @@ public class RegisterViewModel : ReactiveObject
     {
         if (string.IsNullOrWhiteSpace(UserName) || string.IsNullOrWhiteSpace(PassWord))
         {
-            await UpdateErrorMessageAsync("Username and Password are required.");
+            OpenDialog(false,"请输入用户名密码");
             return;
         }
 
         if (PassWord != ConfirmPassword)
         {
-            await UpdateErrorMessageAsync("Passwords do not match.");
+            OpenDialog(false,"密码不一致");
             return;
         }
 
@@ -79,9 +87,26 @@ public class RegisterViewModel : ReactiveObject
         };
 
         await _userService.AddUserAsync(newUser);
-        Console.WriteLine("User registered successfully.");
+        OpenDialog(true,"用户注册成功");
     }
-    
+
+    private static void OpenDialog(bool state ,string message)
+    {
+        MessageBoxManager.GetMessageBoxCustom(new MessageBoxCustomParams
+        {
+            ButtonDefinitions = new List<ButtonDefinition>
+            {
+                new() { Name = "Yes", },
+            },
+            ContentTitle = "title",
+            ContentMessage = message,
+            Icon = state?MsBox.Avalonia.Enums.Icon.Success:MsBox.Avalonia.Enums.Icon.Warning,
+            WindowStartupLocation = WindowStartupLocation.CenterOwner,
+            CanResize = false,
+            Width = 250,
+            Height = 150,
+        }).ShowAsync();
+    }
     private static string HashPassword(string password)
     {
         // 生成盐并哈希密码
